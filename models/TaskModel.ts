@@ -1,6 +1,6 @@
 import {v4 as uuidv4} from "uuid";
 
-class Schedule {
+export class TaskModel {
     id: string;
     service: string;
     date: Date;
@@ -11,4 +11,5 @@ class Schedule {
     }
 }
 
-export default Schedule;
+//If you add public methods, you may want to replace the empty string with them!
+type TaskMData = Partial<InstanceType<typeof TaskModel>>

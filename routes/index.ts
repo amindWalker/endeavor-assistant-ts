@@ -1,8 +1,8 @@
 import { Router } from "express";
-import scheduleRouter from "./schedules.routes";
+import taskRouter from "./tasks.routes";
 
 const routes = Router();
 
-routes.use("/schedules", scheduleRouter);
+routes.use("/tasks", taskRouter);
 
 export default routes;

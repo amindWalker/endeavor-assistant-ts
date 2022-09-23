@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const PORT = 8080;
+const PORT = 3001;
 (0, express_1.default)().get("/", (req, res) => {
     return res.json({ message: "Hello world!" });
 });
