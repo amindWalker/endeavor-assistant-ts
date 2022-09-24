@@ -1,33 +1,43 @@
 {
-  "name": "business-plus-mgr",
-  "version": "0.0.0",
-  "description": "Business+ Manager server",
-  "main": "server.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:server": "ts-node-dev --inspect --transpile-only --ignore node_modules server.ts"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/amindWalker/business-plus-mgr.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/amindWalker/business-plus-mgr/issues"
-  },
-  "homepage": "https://github.com/amindWalker/business-plus-mgr#readme",
-  "devDependencies": {
-    "@types/express": "^4.17.13",
-    "@types/uuid": "^8.3.4",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^4.8.2"
-  },
-  "dependencies": {
-    "date-fns-tz": "^1.3.7",
-    "express": "^4.18.1",
-    "pg": "^8.8.0",
-    "typeorm": "^0.3.10",
-    "uuid": "^8.3.2"
-  }
+    "name": "do-it",
+    "version": "0.0.0",
+    "description": "Business+ Manager server",
+    "main": "server.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev:server": "ts-node-dev --inspect --transpile-only --ignore node_modules server.ts",
+        "start": "ts-node src/index.ts",
+        "typeorm": "typeorm-ts-node-commonjs",
+        "typeorm:create": "typeorm migration:create ./database/migrations/CreateMigrationTask",
+        "typeorm:up": "ts-node --transpile-only ./node_modules/typeorm/cli.js -d database/index.ts migration:run",
+        "typeorm:down": "ts-node --transpile-only ./node_modules/typeorm/cli.js -d database/index.ts migration:revert",
+        "typeorm:show": "ts-node --transpile-only ./node_modules/typeorm/cli.js -d database/index.ts migration:show",
+        "typeorm:clear": "ts-node --transpile-only ./node_modules/typeorm/cli.js -d database/index.ts cache:clear"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/amindWalker/do-it.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/amindWalker/do-it/issues"
+    },
+    "homepage": "https://github.com/amindWalker/do-it#readme",
+    "devDependencies": {
+        "@types/express": "^4.17.13",
+        "@types/uuid": "^8.3.4",
+        "ts-node": "10.7.0",
+        "ts-node-dev": "^2.0.0",
+        "typescript": "4.5.2"
+    },
+    "dependencies": {
+        "date-fns-tz": "^1.3.7",
+        "dotenv": "^16.0.2",
+        "express": "^4.18.1",
+        "pg": "^8.4.0",
+        "reflect-metadata": "^0.1.13",
+        "typeorm": "0.3.10",
+        "uuid": "^8.3.2"
+    }
 }

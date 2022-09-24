@@ -1,5 +1,5 @@
-import { TaskModel } from "./models/TaskModel";
-import Tasks from "./task_store/Tasks";
+import TaskModel from "../database/models/TaskModel";
+import Tasks from "../task_store/Tasks";
 import { startOfHour } from "date-fns"
 
 interface IRequestDTO {

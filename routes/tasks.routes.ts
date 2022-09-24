@@ -3,7 +3,7 @@ import { Router } from "express";
 import { parseISO } from "date-fns";
 // local imports
 import Tasks from "../task_store/Tasks";
-import CreateTaskService from "../CreateTaskService";
+import CreateTaskService from "../services/CreateTaskService";
 
 const taskRouter = Router();
 // TODO: add new kinds of tasks

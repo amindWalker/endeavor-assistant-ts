@@ -1,4 +1,4 @@
-import { TaskModel } from "../models/TaskModel";
+import { TaskModel } from "../database/models/TaskModel";
 import { isEqual } from "date-fns"
 
 interface ICreateDTO {
