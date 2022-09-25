@@ -1,26 +1,25 @@
+// node_modules imports
 import TaskModel from "../database/models/TaskModel";
-import Tasks from "../task_store/Tasks";
-import { startOfHour } from "date-fns"
 
-interface IRequestDTO {
-    service: string;
-    date: Date;
-}
+// local imports
+import { startOfHour } from "date-fns";
+import { IRequestDTO } from "../interfaces";
+import { customTaskRepository } from "../database/dataSource";
 
 class CreateTaskService {
-    private tasks: Tasks;
-    constructor(kind: Tasks) {
-        this.tasks = kind;
-    }
-    public run({ service, date }: IRequestDTO): TaskModel {
-        const taskDate = startOfHour(date)
-        const isCollisionDate = this.tasks.findByDate(taskDate);
+    public async run({service,date,}: IRequestDTO): Promise<TaskModel | null> {
+        const parsedDate = startOfHour(date);
+        const getTaskDate = await customTaskRepository.findByDate(parsedDate);
+        const isCollisionDate = getTaskDate?.date.toString() === parsedDate.toString();
 
         if (isCollisionDate) {
-            throw Error("Já reservado"); // Already booked
+            throw Error("Já reservado") // Already booked
         }
-
-        const newTask = this.tasks.create({ service, date: taskDate });
+        const newTask = customTaskRepository.create({
+            service,
+            date: parsedDate,
+        });
+        await customTaskRepository.save(newTask);
 
         return newTask;
     }

@@ -1,7 +1,6 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm"
+import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class CreateMigrationTask1664043810197 implements MigrationInterface {
-
+export class CreateMigrationTask1664066132794 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
@@ -9,26 +8,27 @@ export class CreateMigrationTask1664043810197 implements MigrationInterface {
                 columns: [
                     {
                         name: "id",
-                        isPrimary: true,
                         type: "varchar",
-                        generationStrategy: "uuid"
+                        isPrimary: true,
+                        generationStrategy: "uuid",
+                        default: "uuid_generate_v4()",
                     },
                     {
                         name: "service",
                         type: "varchar",
-                        isNullable: false
+                        isNullable: false,
                     },
                     {
                         name: "date",
                         type: "timestamp with time zone",
-                        isNullable: false
-                    }
-                ]
+                        isNullable: false,
+                    },
+                ],
             })
-        )
+        );
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.dropTable("tasks");
     }
-
 }

@@ -5,3 +5,8 @@ export interface ITask {
     service: string;
     date: Date;
 }
+
+export interface IRequestDTO {
+    service: string;
+    date: Date;
+}

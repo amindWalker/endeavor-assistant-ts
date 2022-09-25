@@ -9,10 +9,10 @@
         "start": "ts-node src/index.ts",
         "typeorm": "typeorm-ts-node-commonjs",
         "typeorm:create": "typeorm migration:create ./database/migrations/CreateMigrationTask",
-        "typeorm:up": "ts-node --transpile-only ./node_modules/typeorm/cli.js -d database/index.ts migration:run",
-        "typeorm:down": "ts-node --transpile-only ./node_modules/typeorm/cli.js -d database/index.ts migration:revert",
-        "typeorm:show": "ts-node --transpile-only ./node_modules/typeorm/cli.js -d database/index.ts migration:show",
-        "typeorm:clear": "ts-node --transpile-only ./node_modules/typeorm/cli.js -d database/index.ts cache:clear"
+        "typeorm:up": "ts-node --transpile-only ./node_modules/typeorm/cli.js -d database/dataSource.ts migration:run",
+        "typeorm:down": "ts-node --transpile-only ./node_modules/typeorm/cli.js -d database/dataSource.ts migration:revert",
+        "typeorm:show": "ts-node --transpile-only ./node_modules/typeorm/cli.js -d database/dataSource.ts migration:show",
+        "typeorm:clear": "ts-node --transpile-only ./node_modules/typeorm/cli.js -d database/dataSource.ts cache:clear"
     },
     "repository": {
         "type": "git",
