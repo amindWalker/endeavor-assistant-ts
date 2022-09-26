@@ -12,7 +12,7 @@ import "./database/dataSource";
 app.get("/", (_, res) => {
     return res.status(200).send(`
     <div align="center">
-    <h1>Business+ Manager</h1>
+    <h1>Do It Manager</h1>
     <p>{tasks}</p>
     </div>
     `);

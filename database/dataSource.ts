@@ -1,4 +1,5 @@
 // node_modules imports
+import "reflect-metadata";
 import { DataSource } from "typeorm";
 require("dotenv").config();
 // local imports
@@ -33,5 +34,6 @@ export const customTaskRepository = new TaskRepository(
     TaskModel,
     dataSource.createEntityManager()
 );
+
 
 export default dataSource;

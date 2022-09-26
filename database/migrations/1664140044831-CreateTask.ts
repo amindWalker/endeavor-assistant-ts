@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class CreateMigrationTask1664066132794 implements MigrationInterface {
+export class CreateTask1664140044831 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
@@ -8,8 +8,8 @@ export class CreateMigrationTask1664066132794 implements MigrationInterface {
                 columns: [
                     {
                         name: "id",
-                        type: "varchar",
                         isPrimary: true,
+                        type: "uuid",
                         generationStrategy: "uuid",
                         default: "uuid_generate_v4()",
                     },
@@ -22,6 +22,16 @@ export class CreateMigrationTask1664066132794 implements MigrationInterface {
                         name: "date",
                         type: "timestamp with time zone",
                         isNullable: false,
+                    },
+                    {
+                        name: "created_at",
+                        type: "timestamp",
+                        default: "now()",
+                    },
+                    {
+                        name: "updated_at",
+                        type: "timestamp",
+                        default: "now()",
                     },
                 ],
             })
