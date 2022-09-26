@@ -1,7 +1,10 @@
+// node_modules imports
 import { Repository } from "typeorm";
+// local imports
 import dataSource from "../database/dataSource";
 import User from "../database/models/User";
 import { IAuthRequestDTO } from "../interfaces";
+import { HashingTools } from "../utils/HashingTools";
 
 class CreateUserService {
     public async run({
@@ -17,21 +20,28 @@ class CreateUserService {
         const getUsers = await userRepository.findOne({
             where: { email },
         });
-        const isUserTaken =
+        const isUsernameTaken =
+            (await getUsers?.username.toString()) === username?.toString();
+        const isEmailTaken =
             (await getUsers?.email.toString()) === email.toString();
 
-        if (isUserTaken) {
-            throw Error("Nome de usuário já usado")
+        if (isUsernameTaken) {
+            throw Error("Nome de usuário já cadastrado");
         }
-
-        const newUser = userRepository.create({
+        if (isEmailTaken) {
+            throw Error("Email já cadastrado");
+        }
+        // Hash generation
+        const hash = new HashingTools();
+        const hashedPassword = await hash.createHash(password);
+        const newCreatedUser = userRepository.create({
             username,
             email,
-            password
-        })
-        await userRepository.save(newUser);
+            password: hashedPassword,
+        });
+        await userRepository.save(newCreatedUser);
 
-        return newUser;
+        return newCreatedUser;
     }
 }
 

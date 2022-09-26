@@ -1,3 +1,5 @@
+import User from "./database/models/User";
+
 // TODO: export every interface from here
 export interface ITask {
     id: string;
@@ -11,7 +13,12 @@ export interface IServiceRequestDTO {
 }
 
 export interface IAuthRequestDTO {
-    username: string;
+    username?: string;
     email: string;
     password: string;
+}
+
+export interface IUserTokenDTO {
+    user: User;
+    token: string;
 }
