@@ -2,12 +2,15 @@ import path from "path";
 import { randomBytes } from "crypto";
 import multer from "multer";
 
+const catalog = path.resolve(__dirname, "..", "catalog")
+
 const FileUploader = {
+    directory: catalog,
     storage: multer.diskStorage({
-        destination: path.resolve(__dirname, "..", "catalog"),
+        destination: catalog,
         filename(req, file, callback) {
-            const fileHash = randomBytes(16).toString("hex");
-            const fileName = `${fileHash}-${file.originalname}`;
+            const fileHash = randomBytes(8).toString("hex");
+            const fileName = `${fileHash}_${file.originalname}`;
             return callback(null, fileName);
         },
     }),

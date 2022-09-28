@@ -5,7 +5,7 @@ export class ProfileImage1664323966896 implements MigrationInterface {
         await queryRunner.addColumn(
             "users",
             new TableColumn({
-                name: "image",
+                name: "profile_image",
                 type: "varchar",
                 isNullable: true,
             })
@@ -13,6 +13,6 @@ export class ProfileImage1664323966896 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropColumn("users", "image");
+        await queryRunner.dropColumn("users", "profile_image");
     }
 }

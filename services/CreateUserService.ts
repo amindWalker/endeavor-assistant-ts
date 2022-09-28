@@ -25,10 +25,10 @@ class CreateUserService {
         const isEmailTaken =
             (await getUsers?.email.toString()) === email.toString();
 
-        if (isUsernameTaken) {
+        if (getUsers?.username && isUsernameTaken) {
             throw Error("Nome de usuário já cadastrado");
         }
-        if (isEmailTaken) {
+        if (getUsers?.email && isEmailTaken) {
             throw Error("Email já cadastrado");
         }
         // Hash generation

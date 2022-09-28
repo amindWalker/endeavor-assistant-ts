@@ -15,6 +15,9 @@ class User {
     @Column()
     password: string;
 
+    @Column()
+    profile_image: string;
+
     @CreateDateColumn()
     created_at: Date;
 

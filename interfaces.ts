@@ -28,3 +28,8 @@ export interface ITokenPayload {
     exp: number;
     sub: string;
 }
+
+export interface IUploadRequestDTO {
+    filename: string;
+    user_id: string;
+}
