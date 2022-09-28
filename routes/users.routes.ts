@@ -1,6 +1,7 @@
 // node_modules imports
 import { Router } from "express";
 import User from "../database/models/User";
+import sessionBinding from "../middlewares/sessionBinding";
 import CreateUserService from "../services/CreateUserService";
 
 const userRouter = Router();
@@ -23,6 +24,10 @@ userRouter.post("/", async (req, res) => {
     } catch (err: unknown) {
         return res.status(400).json({ error: err.message });
     }
+});
+
+userRouter.patch("/image", sessionBinding, (req, res) => {
+    return res.status(200).json({ message: "OK" });
 });
 
 export default userRouter;

@@ -33,7 +33,7 @@ class CreateUserService {
         }
         // Hash generation
         const hash = new HashingTools();
-        const hashedPassword = await hash.createHash(password);
+        const hashedPassword = await hash.generateHash(password);
         const newCreatedUser = userRepository.create({
             username,
             email,

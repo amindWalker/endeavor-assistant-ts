@@ -4,13 +4,16 @@ import { parseISO } from "date-fns";
 // local imports
 import CreateTaskService from "../services/CreateTaskService";
 import { customTaskRepository } from "../database/dataSource";
+import sessionBinding from "../middlewares/sessionBinding";
 
 const taskRouter = Router();
 // TODO: add new routes for tasks
 
+taskRouter.use(sessionBinding);
+
 taskRouter.get("/", async (_, res) => {
     const weekTasks = await customTaskRepository.find();
-    return res.json(weekTasks);
+    return res.status(200).json(weekTasks);
 });
 
 // NOTE: root path "/" is relative to "/" in routes

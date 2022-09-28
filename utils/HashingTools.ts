@@ -1,8 +1,14 @@
-import { randomBytes, pbkdf2Sync } from "crypto";
+import {
+    randomBytes,
+    pbkdf2Sync,
+    createPrivateKey,
+    createPublicKey,
+} from "crypto";
 import { V4 as pasetoV4 } from "paseto";
+require("dotenv").config();
 
 export class HashingTools {
-    public async createHash(password: string): Promise<string> {
+    public async generateHash(password: string): Promise<string> {
         const salt = randomBytes(64).toString("base64");
         const hashedPassword = pbkdf2Sync(
             password,
@@ -29,14 +35,18 @@ export class HashingTools {
         return inputPasswordHash === storedPassword;
     }
 
-    public async generateToken(payload: object, subject: string): Promise<string> {
-        const keyStore = await pasetoV4.generateKey("public");
-        const privateKey = pasetoV4.keyObjectToBytes(keyStore);
+    public async signToken(payload: object, subject: string): Promise<string> {
+        const privateKey = await createPrivateKey(process.env.APP_SECRET_KEY);
         const token = await pasetoV4.sign(payload, privateKey, {
             subject,
             expiresIn: "2 hours",
         });
-        console.log(`\n${token}\n`);
         return token;
+    }
+
+    public async verifyToken(token: string): Promise<object> {
+        const publicKey = await createPublicKey(process.env.APP_PUBLIC_KEY);
+        const tokenVerified = await pasetoV4.verify(token, publicKey);
+        return tokenVerified;
     }
 }

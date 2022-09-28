@@ -29,7 +29,7 @@ class AuthUserService {
         }
         // Session validation
         const payload = {};
-        const token = await hash.generateToken(payload, getUser.id);
+        const token = await hash.signToken(payload, getUser.id);
 
         return { user: getUser, token};
     }

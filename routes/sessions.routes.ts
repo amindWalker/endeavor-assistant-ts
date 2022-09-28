@@ -4,19 +4,22 @@ import AuthUserService from "../services/AuthUserService";
 
 const sessionRouter = Router();
 
+sessionRouter.get("/", async (_, res) => {
+    res.send("<h1>Response</h1>");
+});
 // NOTE: root path "/" is relative to "/" in routes
 sessionRouter.post("/", async (req, res) => {
     try {
         const { email, password } = req.body;
 
         const authorizeUser = new AuthUserService();
-        const validUser = await authorizeUser.run({
+        const { user, token } = await authorizeUser.run({
             email,
             password,
         });
-        delete validUser.user.password;
+        delete user.password;
 
-        return res.status(200).json(validUser);
+        return res.status(200).json({ user, token });
     } catch (err: unknown) {
         return res.status(400).json({ error: err.message });
     }

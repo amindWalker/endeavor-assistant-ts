@@ -22,3 +22,9 @@ export interface IUserTokenDTO {
     user: User;
     token: string;
 }
+
+export interface ITokenPayload {
+    iat: number;
+    exp: number;
+    sub: string;
+}
