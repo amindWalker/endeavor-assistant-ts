@@ -5,7 +5,7 @@
 </div>
 
 ## ℹ Note
-* The main purpose of this project is to **document, evaluate and benchmark** the strong qualities of the `Rust` language by building a real-world FullStack `TypeScript` (BE+FE) application from scratch then reimplementing everything in `Rust`.
+* The main purpose of this project is to **document, evaluate and benchmark** the strong qualities of the `Rust` language by building a real-world FullStack `TypeScript` (BE+FE) application from scratch then reimplementing everything in `Rust`. It could take a while to implement everything so stay tuned, :star: star this repo if you like it, and follow me in this huge endeavor.
 * The expected result from this:
     > - [ ] `Rust` + `WebAssembly` provides faster, secure and predictable behavior (at compile-time) applications[^1].
     > - [ ] Better maintainable codebase in the medium or long-term.[^2]
