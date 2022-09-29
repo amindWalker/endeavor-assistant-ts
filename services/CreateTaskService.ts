@@ -5,6 +5,7 @@ import TaskModel from "../database/models/TaskModel";
 import { startOfHour } from "date-fns";
 import { IServiceRequestDTO } from "../interfaces";
 import { customTaskRepository } from "../database/dataSource";
+import errorCatcher from "../middlewares/errorCatcher";
 
 class CreateTaskService {
     public async run({ service_id, date }: IServiceRequestDTO): Promise<TaskModel | null> {
@@ -13,7 +14,7 @@ class CreateTaskService {
         const isCollisionDate = getTaskDate?.date.toString() === parsedDate.toString();
 
         if (isCollisionDate) {
-            throw Error("Já reservado") // Already booked
+            throw new errorCatcher("Já reservado") // Already booked
         }
         const newCreatedTask = customTaskRepository.create({
             service_id,

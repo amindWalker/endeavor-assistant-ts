@@ -9,20 +9,16 @@ sessionRouter.get("/", async (_, res) => {
 });
 // NOTE: root path "/" is relative to "/" in routes
 sessionRouter.post("/", async (req, res) => {
-    try {
-        const { email, password } = req.body;
+    const { email, password } = req.body;
 
-        const authorizeUser = new AuthUserService();
-        const { user, token } = await authorizeUser.run({
-            email,
-            password,
-        });
-        delete user.password;
+    const authorizeUser = new AuthUserService();
+    const { user, token } = await authorizeUser.run({
+        email,
+        password,
+    });
+    delete user.password;
 
-        return res.status(200).json({ user, token });
-    } catch (err: unknown) {
-        return res.status(400).json({ error: err.message });
-    }
+    return res.status(200).json({ user, token });
 });
 
 export default sessionRouter;

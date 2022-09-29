@@ -6,6 +6,7 @@ import dataSource from "../database/dataSource";
 import User from "../database/models/User";
 // local imports
 import { IUploadRequestDTO } from "../interfaces";
+import errorCatcher from "../middlewares/errorCatcher";
 import FileUploader from "../utils/FileUploader";
 
 class UploadService {
@@ -15,11 +16,12 @@ class UploadService {
             dataSource.createEntityManager()
         );
         const getUser = await userRepository.findOne({
-            where: { id: user_id }
+            where: { id: user_id },
         });
         if (!getUser) {
-            throw new Error(
-                "Sem permissão: você precisa estar logado para fazer alterações"
+            throw new errorCatcher(
+                "Sem permissão: você precisa estar logado para fazer alterações",
+                401
             );
         }
 

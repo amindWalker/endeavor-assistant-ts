@@ -2,7 +2,7 @@ import path from "path";
 import { randomBytes } from "crypto";
 import multer from "multer";
 
-const catalog = path.resolve(__dirname, "..", "catalog")
+const catalog = path.resolve(__dirname, "..", "files/catalog")
 
 const FileUploader = {
     directory: catalog,

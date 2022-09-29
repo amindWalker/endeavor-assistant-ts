@@ -4,6 +4,7 @@ import { Repository } from "typeorm";
 import dataSource from "../database/dataSource";
 import User from "../database/models/User";
 import { IAuthRequestDTO } from "../interfaces";
+import errorCatcher from "../middlewares/errorCatcher";
 import { HashingTools } from "../utils/HashingTools";
 
 class CreateUserService {
@@ -26,10 +27,10 @@ class CreateUserService {
             (await getUsers?.email.toString()) === email.toString();
 
         if (getUsers?.username && isUsernameTaken) {
-            throw Error("Nome de usuário já cadastrado");
+            throw new errorCatcher("Nome de usuário já cadastrado", 401);
         }
         if (getUsers?.email && isEmailTaken) {
-            throw Error("Email já cadastrado");
+            throw new errorCatcher("Email já cadastrado", 401);
         }
         // Hash generation
         const hash = new HashingTools();

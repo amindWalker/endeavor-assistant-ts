@@ -18,18 +18,14 @@ taskRouter.get("/", async (_, res) => {
 
 // NOTE: root path "/" is relative to "/" in routes
 taskRouter.post("/", async (req, res) => {
-    try {
-        const { service_id, date } = req.body;
+    const { service_id, date } = req.body;
 
-        // pipeline individual tasks input-> parse-> create-> process-> output->
-        const parsedDate = parseISO(date);
-        const createTask = new CreateTaskService();
-        const newTask = await createTask.run({ service_id, date: parsedDate });
+    // pipeline individual tasks input-> parse-> create-> process-> output->
+    const parsedDate = parseISO(date);
+    const createTask = new CreateTaskService();
+    const newTask = await createTask.run({ service_id, date: parsedDate });
 
-        return res.status(200).json(newTask);
-    } catch (err: unknown) {
-        return res.status(400).json({ error: err.message });
-    }
+    return res.status(200).json(newTask);
 });
 
 export default taskRouter;

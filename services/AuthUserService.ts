@@ -4,10 +4,14 @@ import { Repository } from "typeorm";
 import dataSource from "../database/dataSource";
 import User from "../database/models/User";
 import { IAuthRequestDTO, IUserTokenDTO } from "../interfaces";
+import errorCatcher from "../middlewares/errorCatcher";
 import { HashingTools } from "../utils/HashingTools";
 
 class AuthUserService {
-    public async run({ email, password }: IAuthRequestDTO): Promise<IUserTokenDTO> {
+    public async run({
+        email,
+        password,
+    }: IAuthRequestDTO): Promise<IUserTokenDTO> {
         const getRepository = new Repository(
             User,
             dataSource.createEntityManager()
@@ -16,7 +20,7 @@ class AuthUserService {
             where: { email },
         });
         if (!getUser) {
-            throw Error("Invalid credencials");
+            throw new errorCatcher("Credenciais inválidas", 401);
         }
         // Hash validation
         const hash = new HashingTools();
@@ -25,13 +29,13 @@ class AuthUserService {
             getUser.password
         );
         if (!isPasswordValid) {
-            throw Error("Invalid credentials");
+            throw new errorCatcher("Credenciais inválidas", 401);
         }
         // Session validation
         const payload = {};
         const token = await hash.signToken(payload, getUser.id);
 
-        return { user: getUser, token};
+        return { user: getUser, token };
     }
 }
 

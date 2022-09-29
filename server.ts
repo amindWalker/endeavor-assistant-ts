@@ -1,15 +1,31 @@
 // node_modules imports
-import express from "express";
-import { generateKeyPairSync, createPrivateKey } from "crypto";
+import express, { NextFunction, Request, response, Response } from "express";
+import "express-async-errors";
 // local imports
 import routes from "./routes";
-require("dotenv").config()
+require("dotenv").config();
+import "./database/dataSource";
+import FileUploader from "./utils/FileUploader";
+import errorCatcher from "./middlewares/errorCatcher";
 
 const app = express();
 app.use(express.json());
+app.use("/files", express.static(FileUploader.directory));
 app.use(routes);
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+    if (err instanceof errorCatcher) {
+        return res.status(err.statusCode).json({
+            status: "error",
+            message: err.message,
+        });
+    }
+    // console.error(err);
 
-import "./database/dataSource";
+    return response.status(500).json({
+        status: "error",
+        message: "Internal server error",
+    });
+});
 
 app.get("/", (_, res) => {
     return res.status(200).send(`
@@ -21,7 +37,6 @@ app.get("/", (_, res) => {
 });
 
 const PORT = 3001;
-const {privateKey,publicKey} = generateKeyPairSync("ed25519");
 app.listen(PORT, () => {
     console.info(`\n[:: OK ::] Server started on port: ${PORT}\n`);
 });
