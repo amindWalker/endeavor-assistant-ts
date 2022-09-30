@@ -1,13 +1,14 @@
-import { useState } from "react";
-import "./App.css";
-import SignIn from "./components/SignIn";
+import Login from "./components/Login";
 
 function App() {
-    const [count, setCount] = useState(0);
-
     return (
         <>
-            <SignIn />
+        <div className="base grid lg:grid-cols-3 transition-all duration-300
+        bg-gradient-to-tr from-blue-gray-500 to-blue-gray-300 h-screen w-screen place-items-center">
+            <div className="lg:col-start-2 w-max">
+                <Login />
+            </div>
+        </div>
         </>
     );
 }

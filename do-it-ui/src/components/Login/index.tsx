@@ -1,7 +1,7 @@
 import Container from "../Container";
 import Content from "../Content";
 
-function SignIn() {
+function Login() {
     return (
         <>
             <Container>
@@ -11,4 +11,4 @@ function SignIn() {
     );
 }
 
-export default SignIn;
+export default Login;
