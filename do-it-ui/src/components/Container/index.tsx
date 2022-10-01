@@ -1,10 +1,8 @@
-import { PropsWithChildren } from "react";
+import { HTMLAttributes } from "react";
 
-function Container({ children }: PropsWithChildren) {
+function Container({ children, className }: HTMLAttributes<HTMLDivElement>) {
     return (
-        <div className="
-        container bg-gradient-to-tr from-blue-gray-300 to-blue-gray-100
-        p-12 rounded-xl">
+        <div className={`transition-all duration-300 bg-blue-gray-300 p-12 ${className}`}>
             {children}
         </div>
     );

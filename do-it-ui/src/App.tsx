@@ -1,14 +1,17 @@
-import Login from "./components/Login";
+import Container from "./components/Container";
+import Login from "./pages/Homepage/Login";
 
 function App() {
     return (
         <>
-        <div className="base grid lg:grid-cols-3 transition-all duration-300
-        bg-gradient-to-tr from-blue-gray-500 to-blue-gray-300 h-screen w-screen place-items-center">
-            <div className="lg:col-start-2 w-max">
-                <Login />
-            </div>
-        </div>
+            <Container
+                className={`grid lg:grid-cols-3 place-items-center bg-gradient-to-tr
+                    from-blue-gray-500 to-blue-gray-300 h-screen w-screen`}
+            >
+                <Container className="lg:(col-start-2 p-0) w-max rounded-xl">
+                    <Login />
+                </Container>
+            </Container>
         </>
     );
 }
