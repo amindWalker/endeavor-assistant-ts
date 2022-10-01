@@ -7,8 +7,9 @@ function Text({
 }: DialogHTMLAttributes<HTMLParagraphElement>) {
     return (
         <span
-        {...rest}
-            className={`transition-all duration-300 filter drop-shadow-sm ${className}`}>
+            {...rest}
+            className={`transition-all duration-300 filter drop-shadow-sm ${className}`}
+        >
             {children}
         </span>
     );

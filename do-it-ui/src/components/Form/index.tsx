@@ -6,10 +6,7 @@ function Form({
     ...rest
 }: FormHTMLAttributes<HTMLFormElement>) {
     return (
-        <form
-            {...rest}
-            className={`filter drop-shadow-md ${className}`}
-        >
+        <form {...rest} className={`filter drop-shadow-md ${className}`}>
             {children}
         </form>
     );
