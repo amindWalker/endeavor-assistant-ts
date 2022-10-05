@@ -1,4 +1,4 @@
-import Text from "../../components/Text";
+import Text from "../../features/base_components/Text";
 
 function Dashboard() {
     return <Text>Dashboard</Text>;

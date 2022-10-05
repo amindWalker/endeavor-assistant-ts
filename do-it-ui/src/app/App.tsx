@@ -1,7 +1,5 @@
-import Container from "./components/Container";
-import Dashboard from "./pages/Dashboard";
+import Container from "./features/base_components/Container";
 import Homepage from "./pages/Homepage";
-import Login from "./pages/Homepage/Login";
 
 function App() {
     return (
