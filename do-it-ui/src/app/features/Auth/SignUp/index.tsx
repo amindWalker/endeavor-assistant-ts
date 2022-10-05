@@ -4,13 +4,15 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 // local imports
-import ISignUpForm from "../../../../common/interfaces";
+import { ISignUpForm } from "../../../../common/interfaces";
 import Button from "../../base_components/Button";
 import Container from "../../base_components/Container";
 import Form from "../../base_components/Form";
 import Input from "../../base_components/Input";
 import Link from "../../base_components/Link";
 import Text from "../../base_components/Text";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import { switchToLogin, switchToSignUp } from "../loginSignUpStateSlice";
 
 const signUpSchema = yup.object({
     email: yup.string().email().min(6).max(32).required(),
@@ -23,6 +25,13 @@ function SignUp() {
     const { register, handleSubmit } = useForm<ISignUpForm>({
         resolver: yupResolver(signUpSchema)
     });
+
+    // SignUp or Login state
+    const isSignUpClicked = useAppSelector(state => state.signup.value);
+    const dispatch = useAppDispatch();
+    function handleSignUpClick() {
+        dispatch(!isSignUpClicked ? switchToSignUp() : switchToLogin())
+    }
 
     function handleEyeClick(e: SyntheticEvent) {
         if (e.currentTarget.id === "eye" || "eye-alt") {
@@ -53,12 +62,15 @@ function SignUp() {
 
     return (
         <Container
-            className="bg-gradient-to-tr from-blue-gray-300
-                to-blue-gray-100 filter drop-shadow-2xl rounded-xl text-center"
+            className="-rotate-y-180 bg-gradient-to-tr from-blue-gray-300
+                to-blue-gray-100 filter drop-shadow-2xl rounded-xl text-center transform-gpu rotate-y-0"
         >
-            <Text className="text-blue-gray-500 text-md flex justify-center -mt-6 mb-6">
+            <Text className="text-blue-gray-500 text-md flex justify-center -mb-2">
                 CADASTRE UMA CONTA
             </Text>
+
+            <hr className="border border-blue-gray-300 my-6"/>
+
             <Form
                 onSubmit={handleSubmit(onSubmit)}
                 className="grid gap-4"
@@ -88,9 +100,12 @@ function SignUp() {
                     required
                 />
                 <Button type="submit">Cadastrar</Button>
+
+                <hr className="border border-blue-gray-300"/>
+
                 <Link
-                    href="#"
-                    className="text-center mt-8 text-orange-500 underline"
+                    className="text-center text-orange-600 underline"
+                    onClick={handleSignUpClick}
                 >
                     voltar para a tela de login
                 </Link>

@@ -1,10 +1,18 @@
-export default interface ISignUpForm {
+export interface ISignUpForm {
     email: string;
     password: string;
     username: string;
 }
 
-export default interface ILoginForm {
+export interface ILoginForm {
     email: string;
     password: string;
+}
+
+export interface IAuthState {
+    value: boolean;
+}
+
+export interface ILoginSignUp {
+    value: boolean;
 }
