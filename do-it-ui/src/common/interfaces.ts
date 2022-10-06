@@ -16,3 +16,7 @@ export interface IAuthState {
 export interface ILoginSignUp {
     value: boolean;
 }
+
+export interface ITasks {
+
+}

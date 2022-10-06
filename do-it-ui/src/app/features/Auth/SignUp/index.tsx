@@ -69,7 +69,7 @@ function SignUp() {
                 CADASTRE UMA CONTA
             </Text>
 
-            <hr className="border border-blue-gray-300 my-6"/>
+            <hr className="border-dashed border-blue-gray-300 my-6"/>
 
             <Form
                 onSubmit={handleSubmit(onSubmit)}
@@ -101,7 +101,7 @@ function SignUp() {
                 />
                 <Button type="submit">Cadastrar</Button>
 
-                <hr className="border border-blue-gray-300"/>
+                <hr className="border-dashed border-blue-gray-300"/>
 
                 <Link
                     className="text-center text-orange-600 underline"
