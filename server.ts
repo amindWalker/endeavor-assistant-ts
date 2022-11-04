@@ -1,14 +1,16 @@
 // node_modules imports
 import express, { NextFunction, Request, response, Response } from "express";
 import "express-async-errors";
+require("dotenv").config();
+import cors from "cors";
 // local imports
 import routes from "./routes";
-require("dotenv").config();
 import "./database/dataSource";
 import FileUploader from "./utils/FileUploader";
 import errorCatcher from "./middlewares/errorCatcher";
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.use("/files", express.static(FileUploader.directory));
 app.use(routes);
