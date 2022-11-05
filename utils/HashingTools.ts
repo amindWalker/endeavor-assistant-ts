@@ -36,7 +36,7 @@ export class HashingTools {
     }
 
     public async signToken(payload: object, subject: string): Promise<string> {
-        const privateKey = await createPrivateKey(process.env.APP_SECRET_KEY);
+        const privateKey = createPrivateKey(process.env.APP_SECRET_KEY);
         const token = await pasetoV4.sign(payload, privateKey, {
             subject,
             expiresIn: "2 hours",
@@ -45,7 +45,7 @@ export class HashingTools {
     }
 
     public async verifyToken(token: string): Promise<object> {
-        const publicKey = await createPublicKey(process.env.APP_PUBLIC_KEY);
+        const publicKey = createPublicKey(process.env.APP_PUBLIC_KEY);
         const tokenVerified = await pasetoV4.verify(token, publicKey);
         return tokenVerified;
     }

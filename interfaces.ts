@@ -1,14 +1,13 @@
 import User from "./database/models/User";
 
-// TODO: export every interface from here
 export interface ITask {
     id: string;
-    service: string;
+    provider: string;
     date: Date;
 }
 
 export interface IServiceRequestDTO {
-    service_id: string;
+    provider: string;
     date: Date;
 }
 

@@ -62,8 +62,8 @@ function SignUp() {
 
     return (
         <Container
-            className="rotate-y-180 bg-gradient-to-tr from-blue-gray-300
-                to-blue-gray-100 filter drop-shadow-2xl rounded-xl text-center transform-gpu rotate-y-0"
+            className="bg-gradient-to-tr from-blue-gray-300 to-blue-gray-100
+            filter drop-shadow-2xl rounded-xl text-center transform-gpu -rotate-y-180"
         >
             <Text className="text-blue-gray-500 text-md flex justify-center -mb-2">
                 CADASTRE UMA CONTA

@@ -17,11 +17,8 @@ class TaskModel {
     id: string;
 
     @ManyToOne(() => User)
-    @JoinColumn({ name: "service_id" })
-    service: User;
-
-    @Column()
-    service_id: string;
+    @JoinColumn({ name: "provider_id" })
+    provider: User;
 
     @Column("timestamp with time zone")
     date: Date;
@@ -32,8 +29,5 @@ class TaskModel {
     @UpdateDateColumn()
     updated_at: Date;
 }
-
-//If you add public methods, you may want to replace the empty string with them!
-type TaskMData = Partial<InstanceType<typeof TaskModel>>;
 
 export default TaskModel;

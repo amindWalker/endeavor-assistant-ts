@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { ITasks } from "../common/interfaces";
+import { ITask } from "../common/interfaces";
 
-const apiStateSlice = createApi({
+export const apiStateSlice = createApi({
     reducerPath: "api",
     baseQuery: fetchBaseQuery({
         baseUrl: "http://localhost:3001",
@@ -11,7 +11,7 @@ const apiStateSlice = createApi({
     }),
     endpoints(build) {
         return {
-            fetchTasks: build.query<ITasks, void>({
+            fetchTasks: build.query<ITask[], number | void>({
                 query(limit = 10) {
                     return `/tasks?limit=${limit}`;
                 },
@@ -19,3 +19,5 @@ const apiStateSlice = createApi({
         };
     },
 });
+
+export const { useFetchTasksQuery } = apiStateSlice;

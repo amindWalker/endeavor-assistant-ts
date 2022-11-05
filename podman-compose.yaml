@@ -4,9 +4,9 @@ services :
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: $USER
-      POSTGRES_PASSWORD: $PASSWORD
-      POSTGRES_DB: $DB_NAME
+      POSTGRES_USER: $PG_USER
+      POSTGRES_PASSWORD: $PG_PASSWORD
+      POSTGRES_DB: $PG_DB_NAME
   admin:
     image: docker.io/adminer
     restart: unless-stopped

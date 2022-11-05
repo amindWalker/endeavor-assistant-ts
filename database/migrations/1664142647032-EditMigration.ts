@@ -8,11 +8,11 @@ import {
 // NOTE: use this to update or fix mistakes instead of rollback with migration:revert
 export class EditMigration1664142647032 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropColumn("tasks", "service");
+        await queryRunner.dropColumn("tasks", "provider");
         await queryRunner.addColumn(
             "tasks",
             new TableColumn({
-                name: "service_id",
+                name: "provider_id",
                 type: "uuid",
                 isNullable: true,
             })
@@ -22,7 +22,7 @@ export class EditMigration1664142647032 implements MigrationInterface {
             "tasks",
             new TableForeignKey({
                 name: "ServiceForeignKey",
-                columnNames: ["service_id"],
+                columnNames: ["provider_id"],
                 referencedColumnNames: ["id"],
                 referencedTableName: "users",
                 onDelete: "SET NULL",
@@ -33,9 +33,9 @@ export class EditMigration1664142647032 implements MigrationInterface {
 
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropForeignKey("tasks", "ServiceForeignKey");
-        await queryRunner.dropColumn("tasks", "service_id");
+        await queryRunner.dropColumn("tasks", "provider_id");
         await queryRunner.addColumn("tasks", new TableColumn({
-            name: "service",
+            name: "provider",
             type: "varchar"
         }));
     }

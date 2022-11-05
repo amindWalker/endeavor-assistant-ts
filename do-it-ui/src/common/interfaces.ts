@@ -17,6 +17,18 @@ export interface ILoginSignUp {
     value: boolean;
 }
 
-export interface ITasks {
+export interface User {
+    id: string;
+    username: string;
+    email: string;
+    profile_image: string;
+}
 
+export interface ITask {
+    id: string;
+    provider: User;
+    provider_id: string;
+    date: Date;
+    created_at: Date;
+    updated_at: Date;
 }

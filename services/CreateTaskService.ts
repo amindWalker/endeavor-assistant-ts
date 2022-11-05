@@ -8,7 +8,7 @@ import { customTaskRepository } from "../database/dataSource";
 import errorCatcher from "../middlewares/errorCatcher";
 
 class CreateTaskService {
-    public async run({ service_id, date }: IServiceRequestDTO): Promise<TaskModel | null> {
+    public async run({ provider, date }: IServiceRequestDTO): Promise<TaskModel | null> {
         const parsedDate = startOfHour(date);
         const getTaskDate = await customTaskRepository.findByDate(parsedDate);
         const isCollisionDate = getTaskDate?.date.toString() === parsedDate.toString();
@@ -17,7 +17,7 @@ class CreateTaskService {
             throw new errorCatcher("Já reservado") // Already booked
         }
         const newCreatedTask = customTaskRepository.create({
-            service_id,
+            provider,
             date: parsedDate,
         });
         await customTaskRepository.save(newCreatedTask);

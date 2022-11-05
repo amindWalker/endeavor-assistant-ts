@@ -1,0 +1,60 @@
+@baseUrl = http://localhost:3001
+@token = {{$dotenv TMP_TOKEN}}
+
+### ACCESS HOME PAGE
+GET {{baseUrl}}
+
+### CREATE USERS
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+    "email": "user@email.com",
+    "password": "password",
+    "username": "username"
+}
+
+### USER SESSIONS
+POST {{baseUrl}}/sessions
+Content-Type: application/json
+
+{
+    "email": "user@email.com",
+    "password": "password"
+}
+
+### CREATE TASKS
+POST {{baseUrl}}/tasks
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "provider": {
+        "username": "username",
+        "email": "user@email.com"
+    },
+    "date": "2022-01-11"
+}
+
+### LIST TASKS
+GET {{baseUrl}}/tasks
+Authorization: {{token}}
+
+### UPLOAD FILES
+PATCH {{baseUrl}}/users/profile
+Content-Type: multipart/form-data; boundary=Boundary
+Authorization: {{token}}
+
+--Boundary
+Content-Disposition: form-data; name="text"
+
+title
+--Boundary
+Content-Disposition: form-data; name="profile_image"; filename="image_test.png"
+Content-Type: image/png
+
+< ./image_test.png
+--Boundary--
+
+###
+

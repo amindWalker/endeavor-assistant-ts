@@ -9,7 +9,7 @@ import FileUploader from "../utils/FileUploader";
 const userRouter = Router();
 const uploader = multer(FileUploader);
 
-// NOTE: root path "/" is relative to "/" in routes
+// NOTE: root path "/" is relative to "/" in index.ts routes
 userRouter.post("/", async (req, res) => {
     const { username, email, password } = req.body;
 

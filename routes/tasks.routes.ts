@@ -11,19 +11,19 @@ const taskRouter = Router();
 
 taskRouter.use(sessionBinding);
 
+// NOTE: root path "/" is relative to "/" in index.ts routes
 taskRouter.get("/", async (_, res) => {
     const weekTasks = await customTaskRepository.find();
     return res.status(200).json(weekTasks);
 });
 
-// NOTE: root path "/" is relative to "/" in routes
 taskRouter.post("/", async (req, res) => {
-    const { service_id, date } = req.body;
+    const { provider, date } = req.body;
 
     // pipeline individual tasks input-> parse-> create-> process-> output->
     const parsedDate = parseISO(date);
     const createTask = new CreateTaskService();
-    const newTask = await createTask.run({ service_id, date: parsedDate });
+    const newTask = await createTask.run({ provider, date: parsedDate });
 
     return res.status(200).json(newTask);
 });
