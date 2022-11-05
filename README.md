@@ -12,11 +12,11 @@
     > - [ ] Front-end and back-end in `Rust` keeps high level abstractions with readable modern functional programming concepts that are comparable or better than `TypeScript`.[^3]
     > - [ ] Smaller cross-platform bundles (binaries + dependencies).[^4]
     > - [ ] Less memory and CPU usage (saving money and time).[^5]
-    > - [ ] First-class Tests, Documentation and Packaging (less dependencies).[^6]
+    > - [x] First-class Tests, Documentation and Packaging (less dependencies).[^6]
     > - [x] Best-in-class compiler messages with inline manuals integrated with your IDE of choice.[^7]
 
 ## [FEATURES]()
- - [ ] Appointments
+ - [x] Appointments
  - [ ] Checklist
  - [ ] Charts
  - [ ] Finance Tools
