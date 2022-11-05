@@ -1,6 +1,6 @@
 <div align='center'>
 
-# [Do It <br>Business Manager]()
+# [Do It Manager<br>Business Planner]()
 
 </div>
 
