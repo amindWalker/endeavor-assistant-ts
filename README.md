@@ -19,7 +19,7 @@
     > - [x] Best-in-class compiler messages with inline manuals integrated with your IDE of choice.[^9]
 
 ## [FEATURES]()
- - [ ] Appointments
+ - [x] Appointments
  - [ ] Checklist
  - [ ] Charts
  - [ ] Finance Tools
