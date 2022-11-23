@@ -15,7 +15,7 @@
     > - [ ] Front-end and back-end in `Rust` keep high-level abstractions with readable modern functional programming concepts comparable to or better than `TypeScript`.[^5]
     > - [x] Smaller cross-platform WASM bundles (binaries + dependencies).[^6]
     > - [x] Dramatic less memory and CPU usage (environment friendly while saving money and time).[^7]
-    > - [x] First-class Tests, Documentation and Packaging (less dependencies) via Cargo and [crates.io](https://crates.io/).[^8]
+    > - [x] First-class Tests, Documentation and Packaging (meaning less third-party dependencies and fragmentation) via Cargo and [crates.io](https://crates.io/).[^8]
     > - [x] Best-in-class compiler messages with inline manuals integrated with your IDE of choice.[^9]
 
 ## [FEATURES]()
