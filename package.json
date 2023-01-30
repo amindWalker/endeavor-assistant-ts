@@ -1,5 +1,5 @@
 {
-    "name": "do-it",
+    "name": "endeavor-assistant-ts",
     "version": "0.0.0",
     "description": "Business+ Manager server",
     "main": "server.ts",
@@ -16,14 +16,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/amindWalker/do-it.git"
+        "url": "git+https://github.com/amindWalker/endeavor-assistant-ts.git"
     },
     "author": "",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/amindWalker/do-it/issues"
+        "url": "https://github.com/amindWalker/endeavor-assistant-ts/issues"
     },
-    "homepage": "https://github.com/amindWalker/do-it#readme",
+    "homepage": "https://github.com/amindWalker/endeavor-assistant-ts#readme",
     "devDependencies": {
         "@types/cors": "^2.8.12",
         "@types/express": "^4.17.13",

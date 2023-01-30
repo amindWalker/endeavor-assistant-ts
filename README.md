@@ -6,7 +6,7 @@
 
 **ℹ NOTE**
 * The main purpose of this project is to **document, evaluate and benchmark** the strong qualities of the `Rust` language by building a real-world FullStack `TypeScript` (BE+FE) application from scratch then reimplementing everything in `Rust`. I'm opensourcing a project that I've made back in 2020 using current (as of October 2022) tech and best practices from scratch because I want it to be scientifically fair for both sides. It could take a while to reimplement everything so stay tuned (:star: **star this repo if you like it**) and follow me on this huge endeavor.
-* `Rust` version of this repository: [do-it](https://github.com/amindWalker/do-it)
+* `Rust` version of this repository: [endeavor-assistant](https://github.com/amindWalker/endeavor-assistant)
 * The expected result from this:
     > - [x] `Rust` takes a "Data First" approach, making you take better decisions upfront while giving your IDE more information about your code (i.e. better integration with code completions) delivering incredible Developer Experience (DX) along the way.[^1]
     > - [x] There is **no inheritance** in `Rust` by default. This is another way to avoid complex structures which lead to hard-to-catch bugs in runtime. If you need inheritance you can mimic this behavior by implementing `Traits`.[^2]
