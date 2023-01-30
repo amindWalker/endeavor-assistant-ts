@@ -6,7 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev:server": "ts-node-dev --inspect --transpile-only --ignore node_modules server.ts",
-        "start": "ts-node src/index.ts",
+        "start": "ts-node server.ts",
         "typeorm": "typeorm-ts-node-commonjs",
         "typeorm:create": "run(){ typeorm migration:create ./database/migrations/$1; }; run",
         "typeorm:up": "ts-node --transpile-only ./node_modules/typeorm/cli.js -d database/dataSource.ts migration:run",

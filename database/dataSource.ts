@@ -26,7 +26,9 @@ dataSource
         console.info("Data Source has been initialized!");
     })
     .catch((err) => {
-        console.error("Error during Data Source initialization", err);
+        console.error("\nError during Data Source initialization\n", err);
+        console.error("\nCheck your ENV variables and your connection to the database\n");
+        console.error("If you're using containers, check if they're running and test your connection to the database\n");
     });
 
 // NOTE: injecting custom repository into TypeORM

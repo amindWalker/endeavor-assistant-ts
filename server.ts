@@ -21,7 +21,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
             message: err.message,
         });
     }
-    // console.error(err);
+    console.error(err);
 
     return response.status(500).json({
         status: "error",
@@ -38,7 +38,8 @@ app.get("/", (_, res) => {
     `);
 });
 
-const PORT = 3001;
+const HOST = process.env.SERVER_HOST;
+const PORT = process.env.SERVER_PORT;
 app.listen(PORT, () => {
-    console.info(`\n[:: OK ::] Server started on port: ${PORT}\n`);
+    console.info(`\n[::] Server starting on: http://${HOST}:${PORT}\n`);
 });
