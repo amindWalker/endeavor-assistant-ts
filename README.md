@@ -23,8 +23,9 @@
  - [ ] Checklist
  - [ ] Charts
  - [ ] Finance Tools
- - [ ] Notepad (Markdown-like)
- - [ ] Progressive analysis (hints to improve your goals)
+ - [ ] Notes tool (Markdown-like)
+ - [ ] Progressive analysis (AI hints to improve your tasks)
+ - [ ] Full Command Line support (same GUI features but on CLI)
 
 [^1]: [Data-first and data-last: a comparison](https://www.javierchavarri.com/data-first-and-data-last-a-comparison/). Javier Chávarri, May 10, 2019.
 [^2]: [Traits: Defining Shared Behavior](https://doc.rust-lang.org/book/ch10-02-traits.html). The Official Rust Programming Language Book.
