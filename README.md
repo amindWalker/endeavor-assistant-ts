@@ -14,9 +14,10 @@
     > - [ ] Better maintainable codebase in the medium or long term.[^4]
     > - [ ] Front-end and back-end in `Rust` keep high-level abstractions with readable modern functional programming concepts comparable to or better than `TypeScript`.[^5]
     > - [x] Smaller cross-platform WASM bundles (binaries + dependencies).[^6]
-    > - [x] Dramatic less memory and CPU usage (environment friendly while saving money and time).[^7]
-    > - [x] First-class Tests, Documentation and Packaging (meaning less third-party dependencies and fragmentation) via Cargo and [crates.io](https://crates.io/).[^8]
-    > - [x] Best-in-class compiler messages with inline manuals integrated with your IDE of choice.[^9]
+    > - [x] Super lightweight, secure alternative to Linux containers.[^7]
+    > - [x] Dramatic less memory and CPU usage (environment friendly while saving money and time).[^8]
+    > - [x] First-class Tests, Documentation and Packaging (meaning less third-party dependencies and fragmentation) via Cargo and [crates.io](https://crates.io/).[^9]
+    > - [x] Best-in-class compiler messages with inline manuals integrated with your IDE of choice.[^10]
 
 ## [FEATURES]()
  - [x] Appointments
@@ -33,7 +34,8 @@
 [^4]: [placeholder]() Better maintainable codebase in the medium or long-term.
 [^5]: [placeholder]() Front-end and back-end in `Rust` keeps high level abstractions with readable modern functional programming concepts that are comparable or better than `TypeScript`.
 [^6]: [Rust in WebAssembly](https://www.fermyon.com/wasm-languages/rust). Fermyon Blog.
-[^7]: [Sustainability with Rust](https://aws.amazon.com/blogs/opensource/sustainability-with-rust/). AWS Open Source Blog, 11 Feb, 2022.
-[^8]: [The Cargo Book](https://doc.rust-lang.org/cargo/). The Official Cargo Book.
-[^9]: [IDE Integration Using `rust-analyzer`](https://doc.rust-lang.org/book/appendix-04-useful-development-tools.html#ide-integration-using-rust-analyzer). The Official Rust Programming Language Book.
+[^7]: [Super lightweight, secure alternative to Linux containers](https://nigelpoulton.com/getting-started-with-docker-and-wasm/). Nigel Poulton, 8 November, 2022
+[^8]: [Sustainability with Rust](https://aws.amazon.com/blogs/opensource/sustainability-with-rust/). AWS Open Source Blog, 11 Feb, 2022.
+[^9]: [The Cargo Book](https://doc.rust-lang.org/cargo/). The Official Cargo Book.
+[^10]: [IDE Integration Using `rust-analyzer`](https://doc.rust-lang.org/book/appendix-04-useful-development-tools.html#ide-integration-using-rust-analyzer). The Official Rust Programming Language Book.
 
