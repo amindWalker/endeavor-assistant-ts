@@ -5,7 +5,7 @@
 </div>
 
 > **Note**
-> * The main purpose of this project is to **document, evaluate and benchmark** the strong qualities of the `Rust` language by building a real-world FullStack `TypeScript` (BE+FE) application from scratch and then reimplementing everything in `Rust`. I'm opensourcing a project that I've made back in 2020 using current (as of October 2022) tech and best practices from scratch because I want it to be scientifically fair for both sides. It might take a while to reimplement everything so stay tuned (:star: **star this repo if you like it**) and follow me on this huge endeavor.
+> * The main purpose of this project is to **document, evaluate and benchmark** the strong qualities of the `Rust` language by building a real-world FullStack `TypeScript` (BE+FE) application from scratch and then reimplementing everything in `Rust` and `WASM`. I'm opensourcing a project that I've made back in 2020 using current (as of October 2022) tech and best practices from scratch because I want it to be scientifically fair for both sides. It might take a while to reimplement everything so stay tuned (:star: **star this repo if you like it**) and follow me on this huge endeavor.
 
 * `Rust` version of this repository: [endeavor-assistant](https://github.com/amindWalker/endeavor-assistant)
 
@@ -18,8 +18,9 @@
 - [x] Smaller cross-platform WASM bundles (binaries + dependencies).[^6]
 - [x] Super lightweight, secure alternative to Linux containers.[^7]
 - [x] Dramatic less memory and CPU usage (environment friendly while saving money and time).[^8] [^9]
-- [x] First-class Tests, Documentation and Packaging (meaning less third-party dependencies and fragmentation) via Cargo and [crates.io](https://crates.io/).[^10]
-- [x] Best-in-class compiler messages with inline manuals integrated with your IDE of choice.[^11]
+- [x] Faster deployment to production due to the much smaller size of the `WASM` `VM` package.[^10]
+- [x] First-class Tests, Documentation and Packaging (meaning less third-party dependencies and fragmentation) via Cargo and [crates.io](https://crates.io/).[^11]
+- [x] Best-in-class compiler messages with inline manuals integrated with your IDE of choice.[^12]
 
 ## [FEATURES]()
  - [ ] Appointments
@@ -39,6 +40,6 @@
 [^7]: [Super lightweight, secure alternative to Linux containers](https://nigelpoulton.com/getting-started-with-docker-and-wasm/). Nigel Poulton, 8 November, 2022
 [^8]: [Sustainability with Rust](https://aws.amazon.com/blogs/opensource/sustainability-with-rust/). AWS Open Source Blog, 11 Feb, 2022.
 [^9]: [How we built Pingora, the proxy that connects Cloudflare to the Internet](https://blog.cloudflare.com/how-we-built-pingora-the-proxy-that-connects-cloudflare-to-the-internet/).
-[^10]: [The Cargo Book](https://doc.rust-lang.org/cargo/). The Official Cargo Book.
-[^11]: [IDE Integration Using `rust-analyzer`](https://doc.rust-lang.org/book/appendix-04-useful-development-tools.html#ide-integration-using-rust-analyzer). The Official Rust Programming Language Book.
-
+[^10]: [It's time to rethink how we use virtualization in backends](https://www.shuttle.rs/blog/2022/10/21/shuttle-next). Shuttle Blog, 21 October 2022
+[^11]: [The Cargo Book](https://doc.rust-lang.org/cargo/). The Official Cargo Book.
+[^12]: [IDE Integration Using `rust-analyzer`](https://doc.rust-lang.org/book/appendix-04-useful-development-tools.html#ide-integration-using-rust-analyzer). The Official Rust Programming Language Book.
