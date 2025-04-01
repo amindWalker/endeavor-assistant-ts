@@ -10,11 +10,12 @@
 * `Rust` version of this repository: [endeavor-assistant](https://github.com/amindWalker/endeavor-assistant)
 
 ## The Expected Result
+- [x] Rust makes most of the code base almost bug-free, with the exception of logic bugs (obviously, a code base can still contain logic bugs). [^0]
 - [x] `Rust` takes a "Data First" approach, making you take better decisions upfront while giving your IDE more information about your code (i.e. better integration with code completions) delivering incredible Developer Experience (DX) along the way.[^1]
 - [x] There is **no inheritance** in `Rust` by default. This is another way to avoid complex structures which lead to hard-to-catch bugs in runtime. If you need inheritance you can mimic this behavior by implementing `Traits`.[^2]
 - [x] `Rust` + `WebAssembly` provides faster, more secure, and predictable behavior (at compile-time) applications.[^3]
-- [ ] Better maintainable codebase in the medium or long term.[^4]
-- [ ] Front-end and back-end in `Rust` keep high-level abstractions with readable modern functional programming concepts comparable to or better than `TypeScript`.[^5]
+- [x] Better maintainable codebase in the medium or long term.[^4]
+- [x] Front-end and back-end in `Rust` keep high-level abstractions with readable modern functional programming concepts comparable to or better than `TypeScript`.[^5]
 - [x] Smaller cross-platform WASM bundles (binaries + dependencies).[^6]
 - [x] Super lightweight, secure alternative to Linux containers.[^7]
 - [x] Dramatic less memory and CPU usage (environment friendly while saving money and time).[^8] [^9]
@@ -31,6 +32,7 @@
  - [ ] Progressive analysis (AI hints to improve your tasks)
  - [ ] Full Command Line support (same GUI features but on CLI)
 
+[^0]: [Why is Memory Safety Without GC a Big Deal in RUST?](https://medium.com/@humble_bee/why-is-memory-safety-without-gc-a-big-deal-in-rust-41f6bdd5902f), [C++ Memory Bugs Prompt Microsoft to Eye Rust Instead](https://visualstudiomagazine.com/articles/2019/07/18/microsoft-eyes-rust.aspx). David Ramel07/18/2019. [Google, Microsoft Take Refuge in Rust Language's Better Security](https://www.darkreading.com/application-security/google-microsoft-take-refuge-in-rust-languages-better-security). Robert Lemos, Contributing Writer, August 4, 2023.
 [^1]: [Data-first and data-last: a comparison](https://www.javierchavarri.com/data-first-and-data-last-a-comparison/). Javier Chávarri, May 10, 2019.
 [^2]: [Traits: Defining Shared Behavior](https://doc.rust-lang.org/book/ch10-02-traits.html). The Official Rust Programming Language Book.
 [^3]: [Introduction to WebAssembly on the Cloud](https://www.fermyon.com/blog/intro-to-wasm). Fermyon Blog.
